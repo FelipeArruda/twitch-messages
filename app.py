@@ -1,6 +1,22 @@
 from flask import Flask
 import os
+import mysql.connector
+from mysql.connector import errorcode
 
+
+try:
+    cnx = mysql.connector.connect(user='felipearruda', password='felipejf34',
+                                  host='mysql-twitch.cf7idmglqggw.sa-east-1.rds.amazonaws.com',
+                                  database='twitch')
+    print("Conectado")
+
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("Something is wrong with your user name or password")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("Database does not exist")
+    else:
+        print(err)
 
 app = Flask(__name__)
 
