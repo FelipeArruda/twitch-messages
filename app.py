@@ -76,8 +76,8 @@ class Bot(commands.Bot):
 def hello_world():
     return "<p>Bem Twitch!</p>"
 
-bot = Bot()
-bot.run()
+# bot = Bot()
+# bot.run()
 
 port = int(os.environ.get("PORT", 5000))
 app.run(host='0.0.0.0', port=port)
