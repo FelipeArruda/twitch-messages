@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>AWS! 001</p>"
+    return "<p>AWS! 003</p>"
 
     try:
         cnx = mysql.connector.connect(user='felipearruda', password='felipejf34',
