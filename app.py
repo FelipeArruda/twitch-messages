@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Bem vindo!</p>"
+    return "<p>Mysql!</p>"
 
     try:
         cnx = mysql.connector.connect(user='felipearruda', password='felipejf34',
