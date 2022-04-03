@@ -2,9 +2,13 @@ import mysql.connector
 import dotenv
 import os
 import datetime
+from flask import Flask
 from twitchio.ext import commands
 from twitchio.ext.commands.errors import CommandNotFound
 from mysql.connector import errorcode
+app = Flask(__name__)
+
+
 
 try:
     cnx = mysql.connector.connect(user='felipearruda', password='felipejf34',
@@ -72,7 +76,12 @@ class Bot(commands.Bot):
 
 
 
-
-bot = Bot()
-bot.run()
+@app.route("/")
+def main():
+    bot = Bot()
+    bot.run()
 # bot.run() is blocking and will stop execution of any below code here until stopped or closed.
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    main()
