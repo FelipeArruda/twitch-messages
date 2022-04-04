@@ -1,13 +1,13 @@
 from flask import Flask
 import os
 
-app = Flask("Twitch Messages")
+app = Flask(__name__)
 
 
 
 @app.route("/")
 def hello_world():
-    return "AWS 23"
+    return "AWS 25"
 
 
 
