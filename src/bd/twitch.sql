@@ -1,5 +1,5 @@
 CREATE DATABASE twitch;
-
+-- drop table twitch.event_message;
 CREATE TABLE IF NOT EXISTS twitch.event_message(
    id int auto_increment PRIMARY KEY,
    user varchar(500) not null ,
