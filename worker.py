@@ -9,10 +9,8 @@ import datetime
 
 app = Flask(__name__)
 
-timezone = pytz.timezone('America/Sao_Paulo')
-naive = datetime.datetime.now()
-aware = pytz.timezone('America/Sao_Paulo').localize(naive)
-
+u = datetime.datetime.utcnow()
+u = u.replace(tzinfo=pytz.utc)
 
 @app.route("/")
 def hello_world():
@@ -75,12 +73,12 @@ class Bot(commands.Bot):
             return
 
         # Print the contents of our message to console...
-        print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), aware)
+        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), u.astimezone(pytz.timezone("America/Sao_Paulo")))
 
 
         data_event_message = (message.author.name, message.channel.name, message.content,
                               message.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                              aware)
+                              u.astimezone(pytz.timezone("America/Sao_Paulo")))
         pushEventMessage(data_event_message)
 
         # Since we have commands and are overriding the default `event_message`
