@@ -80,8 +80,7 @@ class Bot(commands.Bot):
         # Since we have commands and are overriding the default `event_message`
         # We must let the bot know we want to handle and invoke our commands...
         if not CommandNotFound:
-            pass
-            # await self.handle_commands(message)
+            await self.handle_commands(message)
 
 
 
