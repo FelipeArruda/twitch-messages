@@ -3,14 +3,12 @@ from flask import Flask
 from mysql.connector import errorcode
 from twitchio.ext import commands
 from twitchio.ext.commands.errors import CommandNotFound
-import os
 import mysql.connector
 import datetime
 
 app = Flask(__name__)
 
-u = datetime.datetime.utcnow()
-u = u.replace(tzinfo=pytz.utc)
+IST = pytz.timezone('America/Sao_Paulo')
 
 @app.route("/")
 def hello_world():
@@ -73,12 +71,12 @@ class Bot(commands.Bot):
             return
 
         # Print the contents of our message to console...
-        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), u.astimezone(pytz.timezone("America/Sao_Paulo")))
+        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), datetime.datetime.now(IST))
 
 
         data_event_message = (message.author.name, message.channel.name, message.content,
                               message.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                              u.astimezone(pytz.timezone("America/Sao_Paulo")))
+                              datetime.datetime.now(IST))
         pushEventMessage(data_event_message)
 
         # Since we have commands and are overriding the default `event_message`
