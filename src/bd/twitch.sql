@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS twitch.event_message(
 alter table event_message
     add created_at datetime not null;
 
-select * from twitch.event_message where channel = 'yoda' and user ='sudo4root'  order by date desc;
+select * from twitch.event_message where channel = 'gaules' and user ='yamanakka'  order by date desc;
 select count(*) from twitch.event_message;
 select channel, count(*) from twitch.event_message group by channel order by 2 desc;
 

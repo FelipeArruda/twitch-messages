@@ -1,3 +1,4 @@
+import pytz
 from flask import Flask
 from mysql.connector import errorcode
 from twitchio.ext import commands
@@ -8,6 +9,9 @@ import datetime
 
 app = Flask(__name__)
 
+timezone = pytz.timezone('America/Sao_Paulo')
+naive = datetime.datetime.now()
+aware = pytz.timezone('America/Sao_Paulo').localize(naive)
 
 
 @app.route("/")
@@ -27,7 +31,6 @@ except mysql.connector.Error as err:
         print("Database does not exist")
     else:
         print(err)
-
 
 def pushEventMessage(data_event_message):
     add_event_message = ("INSERT INTO twitch.event_message "
@@ -72,11 +75,12 @@ class Bot(commands.Bot):
             return
 
         # Print the contents of our message to console...
-        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"))
+        print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), aware)
+
 
         data_event_message = (message.author.name, message.channel.name, message.content,
                               message.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                              datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                              aware)
         pushEventMessage(data_event_message)
 
         # Since we have commands and are overriding the default `event_message`
