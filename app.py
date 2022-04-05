@@ -11,7 +11,7 @@ def main():
     data = conn_mysql.query("select channel, count(*) from twitch.event_message group by channel order by 2 desc")
     df = pd.DataFrame(
         data,
-        columns=(['Chanel', 'Amount'])
+        columns=(['Canal', 'Mensagens'])
     )
     st.dataframe(df)
 
