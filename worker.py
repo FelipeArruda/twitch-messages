@@ -56,7 +56,7 @@ class Bot(commands.Bot):
         #                                    'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules', 'casimito', 'mch_agg', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo'])
+                         initial_channels=['gaules', 'casimito', 'mch_agg', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo', 'ESL_CSGO'])
 
     async def event_ready(self):
         # Notify us when everything is ready!
