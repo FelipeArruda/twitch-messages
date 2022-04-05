@@ -44,19 +44,19 @@ def pushEventMessage(data_event_message):
     cursor.close()
 
 
-
 class Bot(commands.Bot):
 
     def __init__(self):
         # Initialise our Bot with our access token, prefix and a list of channels to join on boot...
         # prefix can be a callable, which returns a list of strings or a string...
         # initial_channels can also be a callable which returns a list of strings...
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-        #                  initial_channels=['gaules', 'yoda', 'summit1g', 'casimito', 'mch_agg', 'ale_apoka',
-        #                                    'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow'])
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules', 'casimito', 'mch_agg', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo', 'ESL_CSGO'])
+                         initial_channels=['gaules', 'yoda', 'summit1g', 'casimito', 'mch_agg', 'ale_apoka',
+                                           'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo',
+                                           'ESL_CSGO', 'juansguarnizo', 'NiKo'])
+        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
+        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
+        #                  initial_channels=['gaules', 'casimito', 'mch_agg', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo', 'ESL_CSGO'])
 
     async def event_ready(self):
         # Notify us when everything is ready!
@@ -83,8 +83,6 @@ class Bot(commands.Bot):
         # We must let the bot know we want to handle and invoke our commands...
         if not CommandNotFound:
             await self.handle_commands(message)
-
-
 
 if __name__ == "__main__":
     bot = Bot().run()
