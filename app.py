@@ -1,12 +1,20 @@
+import pandas as pd
 import streamlit as st
-
+from src.Mysql import MysqlDriver
 st.set_page_config("Twitch - Análise de dados")
 
-def main():
 
-    page = st.sidebar.selectbox("Escolha uma opção:", ['Opção 1', 'Opção 2', 'Opção 3'])
-    st.header("Twitch - Análise de dadosss")
-    st.write('Esta é uma página de teste.')
+def main():
+    conn_mysql = MysqlDriver(None)
+    # page = st.sidebar.selectbox("Escolha uma opção:", ['Opção 1', 'Opção 2', 'Opção 3'])
+    st.markdown("### Data preview")
+    data = conn_mysql.query("select channel, count(*) from twitch.event_message group by channel order by 2 desc")
+    df = pd.DataFrame(
+        data,
+        columns=(['Chanel', 'Amount'])
+    )
+    st.dataframe(df)
+
 
 if __name__ == "__main__":
     main()
