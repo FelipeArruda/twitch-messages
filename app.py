@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config("Twitch - Análise de dado")
+st.set_page_config("Twitch - Análise de dados")
 
 def main():
 
