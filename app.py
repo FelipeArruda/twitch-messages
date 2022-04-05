@@ -10,7 +10,8 @@ import streamlit as st
 # def hello_world():
 #     return "AWS 25"
 def main():
-    st.write("Prevendo Diabetes")
+    page = st.sidebar.selectbox("Escolha uma opção:", ['Opção 1', 'Opção 2', 'Opção 3'])
+    st.header("Twicth - Análise de dados")
     st.write('Esta é uma página de teste.')
 
 if __name__ == "__main__":
