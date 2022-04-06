@@ -50,14 +50,15 @@ class Bot(commands.Bot):
         # Initialise our Bot with our access token, prefix and a list of channels to join on boot...
         # prefix can be a callable, which returns a list of strings or a string...
         # initial_channels can also be a callable which returns a list of strings...
-        super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules', 'yoda', 'summit1g', 'casimito', 'mch_agg', 'ale_apoka',
-                                           'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo',
-                                           'ESL_CSGO', 'juansguarnizo', 'NiKo'])
+        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
+        #                  initial_channels=['gaules', 'yoda', 'summit1g', 'casimito', 'mch_agg', 'ale_apoka',
+        #                                    'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo',
+        #                                    'ESL_CSGO', 'juansguarnizo', 'NiKo'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-        #                  initial_channels=['gaules', 'casimito', 'mch_agg', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo', 'ESL_CSGO'])
-
+        #                  initial_channels=['gaules', 'casimito', 'loud_coringa', 'yoda', 'alanzoka', 'gabepeixe', 'luquet4', 'coreano', 'liminhag0d'])
+        super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
+                         initial_channels=['gaules'])
     async def event_ready(self):
         # Notify us when everything is ready!
         # We are logged in and ready to chat and use commands...
