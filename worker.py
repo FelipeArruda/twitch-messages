@@ -55,10 +55,10 @@ class Bot(commands.Bot):
         #                                    'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo',
         #                                    'ESL_CSGO', 'juansguarnizo', 'NiKo'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-        #                  initial_channels=['gaules', 'casimito', 'loud_coringa', 'yoda', 'alanzoka', 'gabepeixe', 'luquet4', 'coreano', 'liminhag0d'])
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules'])
+                         initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka'])
+        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
+        #                  initial_channels=['gaules'])
     async def event_ready(self):
         # Notify us when everything is ready!
         # We are logged in and ready to chat and use commands...
