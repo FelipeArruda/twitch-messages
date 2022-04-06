@@ -56,7 +56,7 @@ class Bot(commands.Bot):
         #                                    'ESL_CSGO', 'juansguarnizo', 'NiKo'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka'])
+                         initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka', 'gafallen'])
         # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
         #                  initial_channels=['gaules'])
     async def event_ready(self):
