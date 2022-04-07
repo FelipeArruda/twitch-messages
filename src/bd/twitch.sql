@@ -15,6 +15,8 @@ select * from twitch.event_message where channel = 'gaules' and user ='sudo4root
 select count(*) from twitch.event_message;
 select channel, count(*) from twitch.event_message group by channel order by 2 desc;
 
+select concat("https://www.twitch.tv/", channel), count(*) from twitch.event_message group by channel order by 2 desc;
+
 select * from twitch.event_message order by  created_at desc;
 
 select user, channel, count(id) from twitch.event_message group by user,channel order by count(id) desc;
