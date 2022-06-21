@@ -1,18 +1,12 @@
 import pytz
-from flask import Flask
+
 from mysql.connector import errorcode
 from twitchio.ext import commands
 from twitchio.ext.commands.errors import CommandNotFound
 import mysql.connector
 import datetime
 
-app = Flask(__name__)
-
 IST = pytz.timezone('America/Sao_Paulo')
-
-@app.route("/")
-def hello_world():
-    return ""
 
 try:
     cnx = mysql.connector.connect(user='felipearruda', password='felipejf34',
@@ -47,18 +41,9 @@ def pushEventMessage(data_event_message):
 class Bot(commands.Bot):
 
     def __init__(self):
-        # Initialise our Bot with our access token, prefix and a list of channels to join on boot...
-        # prefix can be a callable, which returns a list of strings or a string...
-        # initial_channels can also be a callable which returns a list of strings...
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-        #                  initial_channels=['gaules', 'yoda', 'summit1g', 'casimito', 'mch_agg', 'ale_apoka',
-        #                                    'hasanabi', 'mizkif', 'elspreen', 'rubius', 'kamet0', 'xqcow', 'ale_apoka', 'gafallen', 'bt0tv', 'fnxlntc', 'vinicsgo',
-        #                                    'ESL_CSGO', 'juansguarnizo', 'NiKo'])
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?', initial_channels=['sudo4root'])
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
                          initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka', 'gafallen'])
-        # super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-        #                  initial_channels=['gaules'])
+
     async def event_ready(self):
         # Notify us when everything is ready!
         # We are logged in and ready to chat and use commands...
@@ -66,13 +51,10 @@ class Bot(commands.Bot):
         print(f'User id is | {self.user_id}')
 
     async def event_message(self, message, initial_channels=None):
-        # Messages with echo set to True are messages sent by the bot...
-        # For now we just want to ignore them...
         if message.echo:
             return
 
-        # Print the contents of our message to console...
-        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), datetime.datetime.now(IST))
+        print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), datetime.datetime.now(IST))
 
 
         data_event_message = (message.author.name, message.channel.name, message.content,
