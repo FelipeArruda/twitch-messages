@@ -42,7 +42,7 @@ class Bot(commands.Bot):
 
     def __init__(self):
         super().__init__(token='67qpusn45w05rniu5t5gj83c0a1p9d', prefix='?',
-                         initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka', 'gafallen'])
+                         initial_channels=['gaules', 'casimito', 'loud_coringa', 'alanzoka', 'gafallen', 'yoda', 'ale_apoka', 'rnakano'])
 
     async def event_ready(self):
         # Notify us when everything is ready!
