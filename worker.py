@@ -54,7 +54,7 @@ class Bot(commands.Bot):
         if message.echo:
             return
 
-        print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), datetime.datetime.now(IST))
+        # print(message.channel.name + " - " +message.author.name + " - " + message.content + " - " + message.timestamp.strftime("%Y-%m-%d %H:%M:%S"), datetime.datetime.now(IST))
 
 
         data_event_message = (message.author.name, message.channel.name, message.content,
